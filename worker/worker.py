@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from cv_generator import generate_custom_cv
 from letter_generator import generate_cover_letter
 from pdf_exporter import export_markdown_to_pdf
+from pdf_exporter_letter import export_letter_to_pdf
 
 
 # --------------------------------------------------
@@ -172,15 +173,8 @@ def main():
             # -----------------------------
             # Generate tailored CV
             # -----------------------------
-
             custom_cv = generate_custom_cv(cv_default_text, job_context)
             cv_generated_clean = strip_markdown_fences(custom_cv)
-            """
-            print (custom_cv)
-            custom_cv = remove_trailing_ai_sentence(custom_cv)
-            custom_cv = clean_cv_artifacts(custom_cv)
-            custom_cv = strip_citations(custom_cv)
-            """
 
             # Retrieve cv title
             cv_title= extract_cv_title(cv_generated_clean)
@@ -216,26 +210,24 @@ def main():
             # -----------------------------
             # Generate cover letter
             # -----------------------------
-            """
-            cover_letter = generate_cover_letter(custom_cv, job_context)
+            cover_letter = generate_cover_letter(cv_generated_clean, job_context)
 
             update_job_fields(record_id, {"cover_letter": cover_letter})
             print("→ Cover letter generated and saved")
 
             # Export cover letter PDF
-            letter_pdf_path = f"exports/Lettre - {CANDIDATE_NAME} - {clean_title}.pdf"
+            letter_pdf_path = f"exports/Lettre - {cv_title}.pdf"
 
             if os.path.exists(letter_pdf_path):
                 os.remove(letter_pdf_path)
 
-            export_markdown_to_pdf(
+
+            export_letter_to_pdf(
                 cover_letter,
-                letter_pdf_path,
-                CANDIDATE_NAME,
-                clean_title
+                letter_pdf_path
             )
+
             print(f"→ Cover letter PDF exported: {letter_pdf_path}")
-            """
 
             # Final status
             update_job_fields(record_id, {"Status": "done"})

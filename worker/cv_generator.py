@@ -31,7 +31,8 @@ STRICT RULES (must be followed):
 - Never repeat the candidate's name inside the CV body
 - The candidate's name will appear only once, as the main header
 - Add the job title after the candidate's name with a "-" inbetween
-- If job title include "(H/F)" then REMOVE IT (super important from the indicated title
+- If job title includes "(H/F)" or "H/F" then REMOVE IT (super important from the indicated title
+- If job title includes a "/" in the text then remove the "/" and everything that is after (super important also in order not to create problem) 
 - Adapt the introduction paragraph in relation to the job description
 - Do NOT add any location, city, mobility, or geographic preference
 - Do NOT add lines such as "Localisation souhaitée", "Lieu", "Mobilité"
