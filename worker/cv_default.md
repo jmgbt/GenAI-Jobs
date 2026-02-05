@@ -2,7 +2,7 @@ THOMAS SOULIE
 
 Téléphone : 07 81 03 69 29
 Email : thomas.soulie@cpe.fr
-Linkedin : https://www.linkedin.com/in/thomasoulié/
+Linkedin : https://www.linkedin.com/in/thomas-soulie/
 27 ans, Nationalité française
 Disponible immédiatement
 

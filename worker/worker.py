@@ -135,19 +135,11 @@ def main():
         fields = job.get("fields", {})
 
         title = fields.get("title", "")
-        company = fields.get("company", "Non indiqué")
-        contract_type = fields.get("contract_type", "")
-        city = fields.get("City", "")
-        department = fields.get("Department", "")
         source = fields.get("Source", "")
         url = fields.get("URL", "")
 
         print("---- JOB ----")
         print(f"Title        : {title}")
-        print(f"Company      : {company}")
-        print(f"Contract     : {contract_type}")
-        print(f"City         : {city}")
-        print(f"Department  : {department}")
         print(f"Source       : {source}")
         print(f"URL          : {url}")
         print("-------------")
@@ -162,10 +154,6 @@ def main():
             # Build job context (for LLM only)
             job_context = f"""
                 Job title: {clean_title}
-                Company: {company}
-                Contract type: {contract_type}
-                City: {city}
-                Department: {department}
                 Source: {source}
                 Job URL: {url}
             """
@@ -226,6 +214,7 @@ def main():
                 cover_letter,
                 letter_pdf_path
             )
+
 
             print(f"→ Cover letter PDF exported: {letter_pdf_path}")
 
